@@ -1,0 +1,237 @@
+// BigProgram.java
+// This program contains all Level 3 Practice Programs in one single program.
+
+import java.util.Scanner;
+
+class BigProgram {
+
+    public static void main(String[] args) {
+
+        // Create Scanner Object
+        Scanner input = new Scanner(System.in);
+
+        // Display Menu
+        System.out.println("===== JAVA LEVEL 3 PRACTICE PROGRAMS =====");
+        System.out.println("1. Leap Year Check");
+        System.out.println("2. Marks and Grade Calculator");
+        System.out.println("3. Prime Number Check");
+        System.out.println("4. Armstrong Number Check");
+        System.out.println("5. Count Digits");
+        System.out.println("6. BMI Calculator");
+        System.out.println("7. Harshad Number Check");
+        System.out.println("8. Abundant Number Check");
+        System.out.println("9. Calculator (Switch Case)");
+        System.out.println("10. Day Of Week");
+        System.out.print("Enter your choice: ");
+
+        int choice = input.nextInt();
+
+        switch (choice) {
+
+            // 1. Leap Year
+            case 1:
+                System.out.print("Enter Year: ");
+                int year = input.nextInt();
+
+                if (year >= 1582) {
+                    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                        System.out.println("Leap Year");
+                    } else {
+                        System.out.println("Not a Leap Year");
+                    }
+                } else {
+                    System.out.println("Year must be >= 1582");
+                }
+                break;
+
+            // 2. Marks and Grade
+            case 2:
+                System.out.print("Enter Physics Marks: ");
+                double physics = input.nextDouble();
+                System.out.print("Enter Chemistry Marks: ");
+                double chemistry = input.nextDouble();
+                System.out.print("Enter Maths Marks: ");
+                double maths = input.nextDouble();
+
+                double percentage = (physics + chemistry + maths) / 3;
+                System.out.println("Average: " + percentage);
+
+                if (percentage >= 90)
+                    System.out.println("Grade A - Excellent");
+                else if (percentage >= 75)
+                    System.out.println("Grade B - Very Good");
+                else if (percentage >= 60)
+                    System.out.println("Grade C - Good");
+                else if (percentage >= 50)
+                    System.out.println("Grade D - Pass");
+                else
+                    System.out.println("Grade F - Fail");
+                break;
+
+            // 3. Prime Number
+            case 3:
+                System.out.print("Enter Number: ");
+                int primeNumber = input.nextInt();
+                boolean isPrime = true;
+
+                if (primeNumber <= 1)
+                    isPrime = false;
+                else {
+                    for (int i = 2; i < primeNumber; i++) {
+                        if (primeNumber % i == 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (isPrime)
+                    System.out.println("Prime Number");
+                else
+                    System.out.println("Not a Prime Number");
+                break;
+
+            // 4. Armstrong Number
+            case 4:
+                System.out.print("Enter Number: ");
+                int number = input.nextInt();
+                int originalNumber = number;
+                int sum = 0;
+
+                while (number != 0) {
+                    int digit = number % 10;
+                    sum += digit * digit * digit;
+                    number = number / 10;
+                }
+
+                if (sum == originalNumber)
+                    System.out.println("Armstrong Number");
+                else
+                    System.out.println("Not an Armstrong Number");
+                break;
+
+            // 5. Count Digits
+            case 5:
+                System.out.print("Enter Number: ");
+                int digitNumber = input.nextInt();
+                int count = 0;
+
+                while (digitNumber != 0) {
+                    digitNumber = digitNumber / 10;
+                    count++;
+                }
+
+                System.out.println("Number of digits: " + count);
+                break;
+
+            // 6. BMI Calculator
+            case 6:
+                System.out.print("Enter Weight (kg): ");
+                double weight = input.nextDouble();
+                System.out.print("Enter Height (cm): ");
+                double heightCm = input.nextDouble();
+
+                double heightMeter = heightCm / 100;
+                double bmi = weight / (heightMeter * heightMeter);
+
+                System.out.println("BMI: " + bmi);
+
+                if (bmi < 18.5)
+                    System.out.println("Underweight");
+                else if (bmi < 25)
+                    System.out.println("Normal Weight");
+                else if (bmi < 30)
+                    System.out.println("Overweight");
+                else
+                    System.out.println("Obese");
+                break;
+
+            // 7. Harshad Number
+            case 7:
+                System.out.print("Enter Number: ");
+                int harshadNumber = input.nextInt();
+                int temp = harshadNumber;
+                int sumDigits = 0;
+
+                while (temp != 0) {
+                    sumDigits += temp % 10;
+                    temp /= 10;
+                }
+
+                if (harshadNumber % sumDigits == 0)
+                    System.out.println("Harshad Number");
+                else
+                    System.out.println("Not a Harshad Number");
+                break;
+
+            // 8. Abundant Number
+            case 8:
+                System.out.print("Enter Number: ");
+                int abundantNumber = input.nextInt();
+                int divisorSum = 0;
+
+                for (int i = 1; i < abundantNumber; i++) {
+                    if (abundantNumber % i == 0)
+                        divisorSum += i;
+                }
+
+                if (divisorSum > abundantNumber)
+                    System.out.println("Abundant Number");
+                else
+                    System.out.println("Not an Abundant Number");
+                break;
+
+            // 9. Calculator
+            case 9:
+                System.out.print("Enter First Number: ");
+                double first = input.nextDouble();
+                System.out.print("Enter Operator (+,-,*,/): ");
+                String op = input.next();
+                System.out.print("Enter Second Number: ");
+                double second = input.nextDouble();
+
+                switch (op) {
+                    case "+":
+                        System.out.println("Result: " + (first + second));
+                        break;
+                    case "-":
+                        System.out.println("Result: " + (first - second));
+                        break;
+                    case "*":
+                        System.out.println("Result: " + (first * second));
+                        break;
+                    case "/":
+                        if (second != 0)
+                            System.out.println("Result: " + (first / second));
+                        else
+                            System.out.println("Cannot divide by zero");
+                        break;
+                    default:
+                        System.out.println("Invalid Operator");
+                }
+                break;
+
+            // 10. Day Of Week
+            case 10:
+                System.out.print("Enter Month (1-12): ");
+                int m = input.nextInt();
+                System.out.print("Enter Day: ");
+                int d = input.nextInt();
+                System.out.print("Enter Year: ");
+                int y = input.nextInt();
+
+                int y0 = y - (14 - m) / 12;
+                int x = y0 + y0/4 - y0/100 + y0/400;
+                int m0 = m + 12 * ((14 - m) / 12) - 2;
+                int dayOfWeek = (d + x + (31 * m0) / 12) % 7;
+
+                System.out.println("Day of Week (0=Sunday,...6=Saturday): " + dayOfWeek);
+                break;
+
+            default:
+                System.out.println("Invalid Choice");
+        }
+
+        input.close();
+    }
+}
