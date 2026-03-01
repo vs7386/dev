@@ -1,0 +1,232 @@
+// Level1BigProgram
+// This program combines all Level 1 Practice Programs into one single program
+
+import java.util.Scanner;
+
+class Level1BigProgram {
+
+    public static void main(String[] args) {
+
+        // Create Scanner Object
+        Scanner input = new Scanner(System.in);
+
+        // Display Menu
+        System.out.println("===== LEVEL 1 BIG PROGRAM MENU =====");
+        System.out.println("1  - Check Divisible by 5");
+        System.out.println("2  - Check if First is Smallest");
+        System.out.println("3  - Check Largest Among Three");
+        System.out.println("4  - Sum of N Natural Numbers (Formula)");
+        System.out.println("5  - Voting Eligibility");
+        System.out.println("6  - Positive, Negative or Zero");
+        System.out.println("7  - Spring Season Check");
+        System.out.println("8  - Countdown using while");
+        System.out.println("9  - Countdown using for");
+        System.out.println("10 - Sum until user enters 0");
+        System.out.println("11 - Sum until 0 or Negative (break)");
+        System.out.println("12 - Sum of N Natural Numbers (while)");
+        System.out.println("13 - Sum of N Natural Numbers (for)");
+        System.out.println("14 - Factorial using while");
+        System.out.println("15 - Factorial using for");
+        System.out.print("Enter your choice: ");
+
+        int choice = input.nextInt();
+
+        switch (choice) {
+
+            // 1. Divisible by 5
+            case 1:
+                System.out.print("Enter number: ");
+                int number1 = input.nextInt();
+                System.out.println("Is the number " + number1 + " divisible by 5? " + (number1 % 5 == 0));
+                break;
+
+            // 2. First is smallest
+            case 2:
+                System.out.print("Enter three numbers: ");
+                int n1 = input.nextInt();
+                int n2 = input.nextInt();
+                int n3 = input.nextInt();
+                System.out.println("Is the first number the smallest? " + (n1 <= n2 && n1 <= n3));
+                break;
+
+            // 3. Largest among three
+            case 3:
+                System.out.print("Enter three numbers: ");
+                int a = input.nextInt();
+                int b = input.nextInt();
+                int c = input.nextInt();
+                System.out.println("Is first largest? " + (a >= b && a >= c));
+                System.out.println("Is second largest? " + (b >= a && b >= c));
+                System.out.println("Is third largest? " + (c >= a && c >= b));
+                break;
+
+            // 4. Sum of n natural numbers (formula)
+            case 4:
+                System.out.print("Enter number: ");
+                int naturalNum = input.nextInt();
+                if (naturalNum > 0) {
+                    int sumFormula = naturalNum * (naturalNum + 1) / 2;
+                    System.out.println("The sum of " + naturalNum + " natural numbers is " + sumFormula);
+                } else {
+                    System.out.println("The number " + naturalNum + " is not a natural number");
+                }
+                break;
+
+            // 5. Voting eligibility
+            case 5:
+                System.out.print("Enter age: ");
+                int age = input.nextInt();
+                if (age >= 18) {
+                    System.out.println("The person's age is " + age + " and can vote.");
+                } else {
+                    System.out.println("The person's age is " + age + " and cannot vote.");
+                }
+                break;
+
+            // 6. Positive, Negative or Zero
+            case 6:
+                System.out.print("Enter number: ");
+                int checkNum = input.nextInt();
+                if (checkNum > 0)
+                    System.out.println("Positive");
+                else if (checkNum < 0)
+                    System.out.println("Negative");
+                else
+                    System.out.println("Zero");
+                break;
+
+            // 7. Spring Season
+            case 7:
+                System.out.print("Enter month and day: ");
+                int month = input.nextInt();
+                int day = input.nextInt();
+                if ((month == 3 && day >= 20) ||
+                    (month == 4 || month == 5) ||
+                    (month == 6 && day <= 20)) {
+                    System.out.println("Its a Spring Season");
+                } else {
+                    System.out.println("Not a Spring Season");
+                }
+                break;
+
+            // 8. Countdown using while
+            case 8:
+                System.out.print("Enter countdown number: ");
+                int counter = input.nextInt();
+                while (counter >= 1) {
+                    System.out.println(counter);
+                    counter--;
+                }
+                break;
+
+            // 9. Countdown using for
+            case 9:
+                System.out.print("Enter countdown number: ");
+                int count = input.nextInt();
+                for (int i = count; i >= 1; i--) {
+                    System.out.println(i);
+                }
+                break;
+
+            // 10. Sum until 0
+            case 10:
+                double total = 0.0;
+                System.out.print("Enter number (0 to stop): ");
+                double value = input.nextDouble();
+                while (value != 0) {
+                    total += value;
+                    System.out.print("Enter number (0 to stop): ");
+                    value = input.nextDouble();
+                }
+                System.out.println("Total sum = " + total);
+                break;
+
+            // 11. Sum until 0 or negative (break)
+            case 11:
+                double total2 = 0.0;
+                while (true) {
+                    System.out.print("Enter number (0 or negative to stop): ");
+                    double val = input.nextDouble();
+                    if (val <= 0)
+                        break;
+                    total2 += val;
+                }
+                System.out.println("Total sum = " + total2);
+                break;
+
+            // 12. Sum of n natural numbers using while
+            case 12:
+                System.out.print("Enter natural number: ");
+                int nWhile = input.nextInt();
+                if (nWhile > 0) {
+                    int sumWhile = 0;
+                    int i = 1;
+                    while (i <= nWhile) {
+                        sumWhile += i;
+                        i++;
+                    }
+                    int sumFormulaWhile = nWhile * (nWhile + 1) / 2;
+                    System.out.println("Sum using while = " + sumWhile);
+                    System.out.println("Sum using formula = " + sumFormulaWhile);
+                } else {
+                    System.out.println("Not a natural number");
+                }
+                break;
+
+            // 13. Sum of n natural numbers using for
+            case 13:
+                System.out.print("Enter natural number: ");
+                int nFor = input.nextInt();
+                if (nFor > 0) {
+                    int sumFor = 0;
+                    for (int j = 1; j <= nFor; j++) {
+                        sumFor += j;
+                    }
+                    int sumFormulaFor = nFor * (nFor + 1) / 2;
+                    System.out.println("Sum using for = " + sumFor);
+                    System.out.println("Sum using formula = " + sumFormulaFor);
+                } else {
+                    System.out.println("Not a natural number");
+                }
+                break;
+
+            // 14. Factorial using while
+            case 14:
+                System.out.print("Enter number: ");
+                int factNumWhile = input.nextInt();
+                if (factNumWhile > 0) {
+                    int factorialWhile = 1;
+                    int k = 1;
+                    while (k <= factNumWhile) {
+                        factorialWhile *= k;
+                        k++;
+                    }
+                    System.out.println("Factorial = " + factorialWhile);
+                } else {
+                    System.out.println("Not a natural number");
+                }
+                break;
+
+            // 15. Factorial using for
+            case 15:
+                System.out.print("Enter number: ");
+                int factNumFor = input.nextInt();
+                if (factNumFor > 0) {
+                    int factorialFor = 1;
+                    for (int m = 1; m <= factNumFor; m++) {
+                        factorialFor *= m;
+                    }
+                    System.out.println("Factorial = " + factorialFor);
+                } else {
+                    System.out.println("Not a natural number");
+                }
+                break;
+
+            default:
+                System.out.println("Invalid Choice");
+        }
+
+        // Close Scanner
+        input.close();
+    }
+}
