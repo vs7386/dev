@@ -1,0 +1,269 @@
+// Big Program containing all Level 2 Control Flow Programs
+
+import java.util.Scanner;
+
+public class Level2BigProgram {
+
+    public static void main(String[] args) {
+
+        // Create Scanner object
+        Scanner input = new Scanner(System.in);
+
+        // Display menu
+        System.out.println("===== LEVEL 2 BIG PROGRAM MENU =====");
+        System.out.println("1. Odd and Even Numbers");
+        System.out.println("2. Employee Bonus");
+        System.out.println("3. Multiplication Table (6 to 9)");
+        System.out.println("4. FizzBuzz (for loop)");
+        System.out.println("5. FizzBuzz (while loop)");
+        System.out.println("6. Youngest and Tallest Friend");
+        System.out.println("7. Factors (for loop)");
+        System.out.println("8. Factors (while loop)");
+        System.out.println("9. Greatest Factor (for loop)");
+        System.out.println("10. Greatest Factor (while loop)");
+        System.out.println("11. Multiples below 100 (for loop)");
+        System.out.println("12. Power (for loop)");
+        System.out.println("13. Multiples below 100 (while loop)");
+        System.out.println("14. Power (while loop)");
+        System.out.print("Enter your choice: ");
+
+        int choice = input.nextInt();
+
+        switch (choice) {
+
+            // 1. Odd and Even Numbers
+            case 1:
+                System.out.print("Enter a natural number: ");
+                int number1 = input.nextInt();
+
+                for (int i = 1; i <= number1; i++) {
+                    if (i % 2 == 0) {
+                        System.out.println(i + " is Even");
+                    } else {
+                        System.out.println(i + " is Odd");
+                    }
+                }
+                break;
+
+            // 2. Employee Bonus
+            case 2:
+                System.out.print("Enter salary: ");
+                double salary = input.nextDouble();
+
+                System.out.print("Enter years of service: ");
+                int years = input.nextInt();
+
+                double bonus = 0;
+
+                if (years > 5) {
+                    bonus = salary * 0.05;
+                }
+
+                System.out.println("Bonus amount: " + bonus);
+                break;
+
+            // 3. Multiplication Table
+            case 3:
+                System.out.print("Enter a number: ");
+                int number2 = input.nextInt();
+
+                for (int i = 6; i <= 9; i++) {
+                    System.out.println(number2 + " * " + i + " = " + (number2 * i));
+                }
+                break;
+
+            // 4. FizzBuzz (for loop)
+            case 4:
+                System.out.print("Enter a positive number: ");
+                int fizzNumber = input.nextInt();
+
+                for (int i = 1; i <= fizzNumber; i++) {
+                    if (i % 3 == 0 && i % 5 == 0) {
+                        System.out.println("FizzBuzz");
+                    } else if (i % 3 == 0) {
+                        System.out.println("Fizz");
+                    } else if (i % 5 == 0) {
+                        System.out.println("Buzz");
+                    } else {
+                        System.out.println(i);
+                    }
+                }
+                break;
+
+            // 5. FizzBuzz (while loop)
+            case 5:
+                System.out.print("Enter a positive number: ");
+                int fizzNumber2 = input.nextInt();
+                int counter1 = 1;
+
+                while (counter1 <= fizzNumber2) {
+                    if (counter1 % 3 == 0 && counter1 % 5 == 0) {
+                        System.out.println("FizzBuzz");
+                    } else if (counter1 % 3 == 0) {
+                        System.out.println("Fizz");
+                    } else if (counter1 % 5 == 0) {
+                        System.out.println("Buzz");
+                    } else {
+                        System.out.println(counter1);
+                    }
+                    counter1++;
+                }
+                break;
+
+            // 6. Youngest and Tallest Friend
+            case 6:
+                System.out.print("Enter Amar's age and height: ");
+                int ageAmar = input.nextInt();
+                double heightAmar = input.nextDouble();
+
+                System.out.print("Enter Akbar's age and height: ");
+                int ageAkbar = input.nextInt();
+                double heightAkbar = input.nextDouble();
+
+                System.out.print("Enter Anthony's age and height: ");
+                int ageAnthony = input.nextInt();
+                double heightAnthony = input.nextDouble();
+
+                // Youngest
+                if (ageAmar < ageAkbar && ageAmar < ageAnthony) {
+                    System.out.println("Youngest: Amar");
+                } else if (ageAkbar < ageAnthony) {
+                    System.out.println("Youngest: Akbar");
+                } else {
+                    System.out.println("Youngest: Anthony");
+                }
+
+                // Tallest
+                if (heightAmar > heightAkbar && heightAmar > heightAnthony) {
+                    System.out.println("Tallest: Amar");
+                } else if (heightAkbar > heightAnthony) {
+                    System.out.println("Tallest: Akbar");
+                } else {
+                    System.out.println("Tallest: Anthony");
+                }
+                break;
+
+            // 7. Factors (for loop)
+            case 7:
+                System.out.print("Enter a positive number: ");
+                int factorNumber = input.nextInt();
+
+                for (int i = 1; i <= factorNumber; i++) {
+                    if (factorNumber % i == 0) {
+                        System.out.println(i);
+                    }
+                }
+                break;
+
+            // 8. Factors (while loop)
+            case 8:
+                System.out.print("Enter a positive number: ");
+                int factorNumber2 = input.nextInt();
+                int counter2 = 1;
+
+                while (counter2 <= factorNumber2) {
+                    if (factorNumber2 % counter2 == 0) {
+                        System.out.println(counter2);
+                    }
+                    counter2++;
+                }
+                break;
+
+            // 9. Greatest Factor (for loop)
+            case 9:
+                System.out.print("Enter a number: ");
+                int gfNumber = input.nextInt();
+                int greatestFactor = 1;
+
+                for (int i = gfNumber - 1; i >= 1; i--) {
+                    if (gfNumber % i == 0) {
+                        greatestFactor = i;
+                        break;
+                    }
+                }
+
+                System.out.println("Greatest Factor (besides itself): " + greatestFactor);
+                break;
+
+            // 10. Greatest Factor (while loop)
+            case 10:
+                System.out.print("Enter a number: ");
+                int gfNumber2 = input.nextInt();
+                int greatestFactor2 = 1;
+                int counter3 = gfNumber2 - 1;
+
+                while (counter3 >= 1) {
+                    if (gfNumber2 % counter3 == 0) {
+                        greatestFactor2 = counter3;
+                        break;
+                    }
+                    counter3--;
+                }
+
+                System.out.println("Greatest Factor (besides itself): " + greatestFactor2);
+                break;
+
+            // 11. Multiples below 100 (for loop)
+            case 11:
+                System.out.print("Enter a positive number less than 100: ");
+                int multiNumber = input.nextInt();
+
+                for (int i = 100; i >= 1; i--) {
+                    if (i % multiNumber == 0) {
+                        System.out.println(i);
+                    }
+                }
+                break;
+
+            // 12. Power (for loop)
+            case 12:
+                System.out.print("Enter number and power: ");
+                int base = input.nextInt();
+                int power = input.nextInt();
+                int result = 1;
+
+                for (int i = 1; i <= power; i++) {
+                    result = result * base;
+                }
+
+                System.out.println("Result: " + result);
+                break;
+
+            // 13. Multiples below 100 (while loop)
+            case 13:
+                System.out.print("Enter a positive number less than 100: ");
+                int multiNumber2 = input.nextInt();
+                int counter4 = 100;
+
+                while (counter4 >= 1) {
+                    if (counter4 % multiNumber2 == 0) {
+                        System.out.println(counter4);
+                    }
+                    counter4--;
+                }
+                break;
+
+            // 14. Power (while loop)
+            case 14:
+                System.out.print("Enter number and power: ");
+                int base2 = input.nextInt();
+                int power2 = input.nextInt();
+                int result2 = 1;
+                int counter5 = 0;
+
+                while (counter5 < power2) {
+                    result2 = result2 * base2;
+                    counter5++;
+                }
+
+                System.out.println("Result: " + result2);
+                break;
+
+            default:
+                System.out.println("Invalid Choice!");
+        }
+
+        // Close Scanner
+        input.close();
+    }
+}
